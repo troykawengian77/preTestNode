@@ -1,0 +1,71 @@
+<html>
+<div>
+    <input id="input" placeholder="Input Angka" />
+</div>
+<div style="margin-top: 10px;">
+    <button id="btn1" onclick="submitBtn1()">
+        Generate Segitiga
+    </button>
+    <button id="btn2" onclick="submitBtn2()">
+        Generate Bilangan Ganjil
+    </button>
+    <button id="btn3" onclick="submitBtn3()">
+        Generate Bilangan Prima
+    </button>
+
+    <p style="margin-top: 10px;" id="resultbtn1"></p>
+    <p style="margin-top: 10px;" id="resultbtn2"></p>
+    <p style="margin-top: 10px;" id="resultbtn3"></p>
+</div>
+<script>
+    function submitBtn1() {
+        let input = document.getElementById('input').value;
+        let arrInput = input.split('');
+        let result = '';
+
+        for (let i = 0; i < arrInput.length; i++) {
+            result += arrInput[i]
+            for (let j = 0; j <= i; j++) {
+                result += 0;
+            }
+            result += '<br>'
+        }
+        document.getElementById('resultbtn1').innerHTML = result
+    }
+
+    function submitBtn2() {
+        let start = 0;
+        let result = '';
+        let input = document.getElementById('input').value;
+        while (start <= input) {
+            if (start % 2 !== 0) {
+                result += start;
+                result += ',';
+            }
+            start++
+        }
+        document.getElementById('resultbtn2').innerHTML = result
+    }
+
+    function submitBtn3() {
+        let result = '';
+        let input = document.getElementById('input').value;
+        for (let i = 0; i <= input; i++) {
+            let flag = 0;
+            for (let j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    flag = 1;
+                    break;
+                }
+            }
+
+            if (i > 1 && flag) {
+                result += i;
+                result += ',';
+            }
+        }
+        document.getElementById('resultbtn2').innerHTML = result
+    }
+</script>
+
+</html>
